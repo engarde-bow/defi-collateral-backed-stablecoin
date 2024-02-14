@@ -7,31 +7,12 @@ Exogenous Collateral: The system uses external assets (WETH and WBTC) as collate
 Dollar Pegged: Each stable coin is pegged to the value of 1 USD, providing stability against market volatility.
 Algorithmically Stable: The system uses algorithms to automatically adjust supply and demand, maintaining the stable coin’s peg to the dollar.
 How It Works
-The system allows users to deposit WETH or WBTC as collateral to mint stable coins. These stable coins are algorithmically pegged to the value of 1 USD. The system uses smart contracts to automatically adjust the supply of stable coins in response to changes in demand, ensuring that the value of each stable coin remains stable at 1 USD.
+The system allows users to deposit WETH or WBTC as collateral to mint stable coins. You must always have more collateral deposited than Stable Coins minted. There are constant checks to make sure this health factor is not broken. If the health factor is broken, for example in the event of a sudden and sharp drop in WETH or WBTC, the user may be liquidated. Users are rewarded for liquidating postions that are under-collateralized, in order to keep total collateral above the total supply of minted stable coins, and thus keep the peg...well...stable.
 
-Getting Started
-To get started with this project, clone the repository and install the necessary dependencies.
-
-git clone <repository-url>
-cd <repository-directory>
-npm install
 
 Testing
-This project includes test using fuzz or invariant test.
-To run the tests, use the following command:
+This project includes tests using fuzz or invariant tests.
 
-npm run test
-
-Deployment
-To deploy the contracts to a local development network, use the following command:
-
-npm run deploy:local
-
-To deploy the contracts to the mainnet or a testnet, first set up your environment variables, then use the appropriate command:
-
-export INFURA_PROJECT_ID=<your-infura-project-id>
-export PRIVATE_KEY=<your-private-key>
-npm run deploy:mainnet
 
 Contributing
 Contributions are welcome! Please read the contributing guide to get started.
